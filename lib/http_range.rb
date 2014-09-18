@@ -22,3 +22,4 @@ class HTTPRange
 end
 
 require 'http_range/parser'
+require 'http_range/middleware/accept_ranges'

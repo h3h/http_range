@@ -35,6 +35,29 @@ http_range.first_inclusive # => true
 http_range.last_inclusive  # => false
 ```
 
+Or, in a Rack app:
+
+```ruby
+# Range: id a..z[; max=100
+# found in env['HTTP_RANGE']
+app = Rack::Builder.app do
+  use HTTPRange::Middleware::AcceptRanges
+
+  run lambda do |env|
+
+    env['rack.range.attribute']       # => 'id'
+    env['rack.range.first']           # => 'a'
+    env['rack.range.last']            # => 'z'
+    env['rack.range.first_inclusive'] # => true
+    env['rack.range.last_inclusive']  # => false
+    env['rack.range.order']           # => nil
+    env['rack.range.max']             # => '100'
+
+    [200, {}, "Body"]
+  end
+end
+```
+
 ## Inspiration
 
 Inspired by Heroku's [Interagent HTTP API Design][2] as well as brandur's

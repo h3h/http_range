@@ -1,3 +1,4 @@
+require 'rack/test'
 require 'rspec/core'
 
 RSpec.configure do |config|
