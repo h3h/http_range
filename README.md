@@ -35,6 +35,14 @@ http_range.first_inclusive # => true
 http_range.last_inclusive  # => false
 ```
 
+## Inspiration
+
+Inspired by Heroku's [Interagent HTTP API Design][2] as well as brandur's
+[HTTPAccept][3] library.
+
+ [2]: https://github.com/interagent/http-api-design
+ [3]: https://github.com/brandur/http_accept
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/http_range/fork )
