@@ -3,6 +3,8 @@ class HTTPRange
     # Accepts the HTTP Range header string to parse.
     #
     def initialize(header_string)
+      raise MalformedRangeHeaderError, "Missing Range header value." if blank?(header_string)
+
       @header_string = header_string.dup
     end
 

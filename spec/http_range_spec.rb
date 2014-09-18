@@ -6,7 +6,7 @@ RSpec.describe HTTPRange do
     subject { described_class.parse(header) }
 
     context "for a correctly formatted Range header" do
-      let(:header) { "Range: id 29f99177-36e9-466c-baef-f855e1ab731e..6c714be1-d901-4c40-adb3-22c9a8cda950[; max=100" }
+      let(:header) { 'Range: id 29f99177-36e9-466c-baef-f855e1ab731e..6c714be1-d901-4c40-adb3-22c9a8cda950[; max=100' }
 
       it "returns an instance of the class" do
         expect(subject).to be_an(HTTPRange)
@@ -59,6 +59,12 @@ RSpec.describe HTTPRange do
 
     context "for a Range header without a range" do
       let(:header) { "Range: hi" }
+
+      it { expect { subject }.to raise_error(HTTPRange::MalformedRangeHeaderError) }
+    end
+
+    context "for a nil Range header" do
+      let(:header) { nil }
 
       it { expect { subject }.to raise_error(HTTPRange::MalformedRangeHeaderError) }
     end
