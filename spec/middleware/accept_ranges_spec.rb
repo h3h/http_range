@@ -1,4 +1,4 @@
-require 'http_range'
+require 'http_range/middleware/accept_ranges'
 require 'spec_helper'
 
 RSpec.describe HTTPRange::Middleware::AcceptRanges do
