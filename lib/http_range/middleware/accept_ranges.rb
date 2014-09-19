@@ -1,3 +1,4 @@
+require 'http_range'
 require 'json'
 
 class HTTPRange
