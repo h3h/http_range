@@ -1,6 +1,6 @@
 # HTTPRange
 
-A library to parse an HTTP `Range` header for HTTP APIS with semantics
+A library to parse an HTTP `Range` header for HTTP APIs with semantics
 described in [SPEC][1].
 
  [1]: https://github.com/h3h/http_range/blob/master/SPEC.md
