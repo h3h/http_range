@@ -1,9 +1,9 @@
 # HTTPRange
 
-A library to parse an HTTP `Range` header with semantics similar to
-[Heroku's Range headers][1].
+A library to parse an HTTP `Range` header for HTTP APIS with semantics
+described in [SPEC][1].
 
- [1]: https://devcenter.heroku.com/articles/platform-api-reference#ranges
+ [1]: https://github.com/h3h/http_range/blob/master/SPEC.md
 
 ## Installation
 
