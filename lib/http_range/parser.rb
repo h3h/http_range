@@ -52,9 +52,9 @@ class HTTPRange
       (?<attribute>[a-zA-Z][\w\.-]*)
       \s+
       (?<first_exclusive>\])?
-      (?<first>[^\.]*?)
+      (?<first>\S*?[^\.])?
       \.\.
-      (?<last>[^\.]*?)
+      (?<last>[^\.]\S*?)?
       (?<last_exclusive>\[)?
     \z/x
 

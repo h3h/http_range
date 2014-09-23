@@ -33,6 +33,24 @@ RSpec.describe HTTPRange do
       it { expect(subject.order).to eq('desc') }
     end
 
+    context "for a Range header with no first or last endpoints" do
+      let(:header) { "Range: created_at .." }
+
+      it { expect(subject.attribute).to eq('created_at') }
+      it { expect(subject.first).to be_nil }
+      it { expect(subject.last).to be_nil }
+      it { expect(subject.max).to be_nil }
+    end
+
+    context "for a Range header with ISO-8601 dates plus nanoseconds" do
+      let(:header) { "Range: created_at 2014-09-23T17:21:10.324562213Z..2014-09-23T17:21:10.328823821Z" }
+
+      it { expect(subject.attribute).to eq('created_at') }
+      it { expect(subject.first).to eq('2014-09-23T17:21:10.324562213Z') }
+      it { expect(subject.last).to eq('2014-09-23T17:21:10.328823821Z') }
+      it { expect(subject.max).to be_nil }
+    end
+
     context "for a Range header with an invalid order param" do
       let(:header) { "Range: purple.cycle-cleaner_knob ]1e3f..2e5a; order=true" }
 
